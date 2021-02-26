@@ -1,0 +1,27 @@
+.mainContainer {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  box-shadow: 0 0 10px black;
+  animation: forwards makeItShadow 1s;
+  border-radius: 5px;
+}
+
+@keyframes makeItShadow {
+  from {
+    box-shadow: 0 0 0 black;
+  }
+  to {
+    box-shadow: 0 0 10px black;
+  }
+}
+
+@media (max-width: 500px) {
+  .mainContainer {
+    width: 100vw;
+    height: 100%;
+  }
+}

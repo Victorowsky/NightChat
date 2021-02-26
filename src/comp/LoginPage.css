@@ -1,0 +1,49 @@
+.loginContainer {
+	animation: fadeIn 1s forwards;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+}
+.loginContainer a {
+	text-decoration: none;
+	color: inherit;
+}
+.loginGoogle {
+	width: 200px;
+	height: 50px;
+	background-color: white;
+	color: black;
+	font-weight: 500;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.1s ease-in-out;
+	will-change: auto;
+}
+.loginGoogle img {
+	width: 50px;
+}
+
+.QRCode {
+	border-radius: 5px;
+}
+.loginGoogle:hover {
+	background-color: rgb(220, 220, 220);
+}
+
+.loginContainer h3 {
+	text-align: center;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
