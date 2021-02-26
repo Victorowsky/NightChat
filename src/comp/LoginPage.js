@@ -3,23 +3,31 @@ import GooglePng from "../img/google.png";
 import { DataContext } from "../App";
 import { useContext, useEffect, useState } from "react";
 import { Button, CircularProgress } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 const LoginPage = () => {
+	const history = useHistory()
 	const { userInfo, socket } = useContext(DataContext);
 	const [QRCodeUrl, setQRCodeUrl] = useState(null);
 
 	useEffect(() => {
-		if (userInfo) {
+		if (userInfo._id) {
 			socket.emit("createUserQRCode", userInfo._id);
 
 			socket.on("createUserQRCodeAnswer", (url) => {
 				setQRCodeUrl(url);
 			});
-		}
 
+			socket.on(`createUserQRCodeAnswer${userInfo._id}`,({success})=>{
+				if(success){
+					window.location.reload()
+				}
+			})
+		}
 		return () => {
 			socket.removeAllListeners("createUserQRCodeAnswer");
+			socket.removeAllListeners(`createUserQRCodeAnswer${userInfo._id}`);
 		};
-	}, [socket, userInfo]);
+	}, [socket, userInfo,history]);
 
 	const buttonStyle = {
 		color: "white",

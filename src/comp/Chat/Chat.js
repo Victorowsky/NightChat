@@ -1,6 +1,6 @@
 import Message from "./Message";
 import "./Chat.css";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import SendIcon from "@material-ui/icons/Send";
 import { DataContext } from "../../App";
 import moment from "moment";
@@ -11,6 +11,8 @@ const Chat = () => {
   const { socket, userInfo } = useContext(DataContext);
   const { name, userType, image, _id } = userInfo;
   const [text, setText] = useState("");
+
+  const chatRef = useRef(null)
 
   useEffect(() => {
     socket.emit("getMessages");
@@ -31,6 +33,8 @@ const Chat = () => {
       socket.removeAllListeners("newMessageAnswer");
     };
   }, [socket]);
+
+
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -64,7 +68,7 @@ const Chat = () => {
   return (
     <>
   <div className="chat">
-      <div className="chatContainer">{createMessages}</div>
+      <div className="chatContainer" ref={chatRef}>{createMessages}</div>
       <div className="inputContainer">
         <form>
           <input
