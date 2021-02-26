@@ -140,8 +140,14 @@ io.on("connection", (client) => {
 		});
 	});
 
-	client.on("QRVerify", (data) => {
-		console.log(data);
+	client.on("QRVerify", (id) => {
+		UserSchema.findByIdAndUpdate(id, { isVerified: true }, (err, docs) => {
+			if (err) return console.log(`QRVerify ERROR : ${err}`);
+			client.emit("QRVerifyAnswer", {
+				success: true,
+				message: `Verified user ${docs.name}`,
+			});
+		});
 	});
 
 	// console.log("a user connected");
