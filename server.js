@@ -140,6 +140,10 @@ io.on("connection", (client) => {
 		});
 	});
 
+	client.on("QRVerify", (data) => {
+		console.log(data);
+	});
+
 	// console.log("a user connected");
 });
 
