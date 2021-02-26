@@ -12,16 +12,16 @@ export const DataContext = React.createContext(null);
 const socket = io("/");
 
 const App = () => {
-	// const [userInfo, setUserInfo] = useState({
-	// 	_id: "60364824ced6885b5c790991",
-	// 	name: "Victorowsky",
-	// 	image:
-	// 		"https://lh3.googleusercontent.com/a-/AOh14GiwkoB8yrjJrfotKxCu4P7W8IlUz9OicoSbU6HO=s96-c",
-	// 	userType: "admin",
-	// 	isVerified: true,
-	// });
+	const [userInfo, setUserInfo] = useState({
+		_id: "60364824ced6885b5c790991",
+		name: "Victorowsky",
+		image:
+			"https://lh3.googleusercontent.com/a-/AOh14GiwkoB8yrjJrfotKxCu4P7W8IlUz9OicoSbU6HO=s96-c",
+		userType: "admin",
+		isVerified: true,
+	});
 
-	const [userInfo, setUserInfo] = useState(false);
+	// const [userInfo, setUserInfo] = useState(false);
 
 	useEffect(() => {
 		fetch("/getProfile", { credentials: "include" })
