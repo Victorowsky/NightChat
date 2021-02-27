@@ -22,6 +22,7 @@ const Verify = () => {
 	const previewStyle = {
 		height: 240,
 		width: 320,
+		transform:'translateY(-50%)',	
 	};
 
 	useEffect(() => {
@@ -37,7 +38,7 @@ const Verify = () => {
 
 	return (
 		<>
-			<div>
+			<div >
 				<QrReader
 					style={previewStyle}
 					delay={500}
