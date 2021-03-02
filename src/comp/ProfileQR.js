@@ -16,6 +16,7 @@ const ProfileQR = () => {
 
 		return () => {
 			socket.removeAllListeners("createUserQRCodeAnswer");
+			setQRCodeUrl(null)
 		};
 	}, [socket, userInfo]);
 

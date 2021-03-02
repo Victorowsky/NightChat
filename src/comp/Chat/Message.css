@@ -1,38 +1,39 @@
 .message {
-  background-color: rgb(35, 35, 35);
-  border-radius: 10px;
-  width: fit-content;
-  height: fit-content;
-  padding: 15px 10px;
-  max-width: 100%;
-  word-wrap: wrap;
-  word-break: break-word;
-  position: relative;
-  display: flex;
+	background-color: rgb(35, 35, 35);
+	border-radius: 10px;
+	width: fit-content;
+	height: fit-content;
+	padding: 15px 10px;
+	max-width: 100%;
+	word-wrap: wrap;
+	word-break: break-word;
+	position: relative;
+	display: flex;
 }
 .message img {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
 }
 .message:nth-child(2n) {
-  background-color: rgb(25, 25, 25);
+	background-color: rgb(25, 25, 25);
 }
 .messageContent {
-  align-self: center;
+	align-self: center;
 }
 
 .date,
 .dateShown {
-  font-size: 10px;
-  position: absolute;
-  top: 100%;
-  transition: 0.5s ease-in-out;
+	font-size: 10px;
+	position: absolute;
+	top: 100%;
+	transition: 0.5s ease-in-out;
+	width: fit-content;
 }
 .date {
-  opacity: 0;
+	opacity: 0;
 }
 .dateShown {
-  opacity: 1;
+	opacity: 1;
 }

@@ -6,6 +6,7 @@ const Message = ({ name, date, message, userType, userImage, wroteBy }) => {
   const messageRef = useRef(null);
 
   const { userInfo } = useContext(DataContext);
+  const isAdmin = userType === "admin";
 
   useEffect(() => {
     messageRef.current.scrollIntoView({
@@ -13,11 +14,24 @@ const Message = ({ name, date, message, userType, userImage, wroteBy }) => {
     });
   }, []);
   const dateRef = useRef(null);
+  
+  const isMyMessage = userInfo._id === wroteBy
+
+  const myMessageStyles = {
+      alignSelf: "flex-end",
+      marginRight: "2px",
+      borderRadius: "5px 5px 0 5px",
+  }
+
+  const myMessageDateStyle = {
+        left: '100%',
+        transform: 'translateX(-100%)'
+  }
 
   const handleShowDate = () => {
     dateRef.current.classList.toggle("dateShown");
   };
-  const isAdmin = userType === "admin";
+
 
   return (
     <>
@@ -25,15 +39,7 @@ const Message = ({ name, date, message, userType, userImage, wroteBy }) => {
         onClick={handleShowDate}
         className="message"
         ref={messageRef}
-        style={
-          userInfo._id === wroteBy
-            ? {
-                alignSelf: "flex-end",
-                marginRight: "2px",
-                borderRadius: "5px 5px 0 5px",
-              }
-            : {}
-        }
+        style={isMyMessage ? myMessageStyles : {}}
         title={date}
       >
         <img src={userImage} alt="user" />
@@ -46,7 +52,7 @@ const Message = ({ name, date, message, userType, userImage, wroteBy }) => {
           </span>
           :<span className="text"> {message}</span>
         </div>
-        <span ref={dateRef} className="date">
+        <span ref={dateRef} style={isMyMessage ? myMessageDateStyle :{}} className="date">
           {date}
         </span>
       </div>
