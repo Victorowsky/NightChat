@@ -14,7 +14,7 @@ const Message = ({ name, date, message, userType, userImage, wroteBy }) => {
     });
   }, []);
   const dateRef = useRef(null);
-  
+
   const isMyMessage = userInfo._id === wroteBy
 
   const myMessageStyles = {
@@ -25,7 +25,7 @@ const Message = ({ name, date, message, userType, userImage, wroteBy }) => {
 
   const myMessageDateStyle = {
         left: '100%',
-        transform: 'translateX(-100%)'
+        transform: 'translateX(-110%)'
   }
 
   const handleShowDate = () => {
